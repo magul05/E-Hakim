@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout (_arg0, _arg1)">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="${_arg0}">Dashboard</title>
+</head>
+<body>
+<header>
+    <h1>Admin Header</h1>
+</header>
+<main>
+    <div th:replace="${_arg1}">[Main Content]</div>
+</main>
+<footer>
+    <p>Admin Footer</p>
+</footer>
+</body>
+</html>
