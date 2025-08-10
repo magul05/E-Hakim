@@ -25,4 +25,20 @@ public String simpanUser(@ModelAttribute User user) {
     return "/User/tambah_user";
 }
 
+
+@GetMapping("/User/edit_user/{username}")
+    public String showEditForm(@PathVariable("username") String username, Model model) {
+        User user = userRepo.findById(username)
+            .orElseThrow(() -> new IllegalArgumentException("Invalid user username:" + username));
+        model.addAttribute("user", user);
+        return "User/edit_user";  // tanpa slash
+    }
+
+    @PostMapping("/user/update")
+    public String updateUser(@ModelAttribute User user) {
+        userRepo.save(user);
+        return "redirect:/User/edit_user/" + user.getUsername();
+    }
+
+
 }

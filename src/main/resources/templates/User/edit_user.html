@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Edit Hakim</title>
+    <title>edit users</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
@@ -47,7 +47,7 @@
       <div class="sidebar" data-background-color="dark">
         <div class="sidebar-logo">
           <!-- Logo Header -->
-    <div class="logo-header" data-background-color="dark">
+          <div class="logo-header" data-background-color="dark">
               <a href="/dashboard" class="logo">
                 <img
                   src="/Build/assets/img/kaiadmin/logo_light.svg"
@@ -94,14 +94,14 @@
                   </ul>
                 </div>
               </li>
-             <li class="nav-section">
+              <li class="nav-section">
                 <span class="sidebar-mini-icon">
                   <i class="fa fa-ellipsis-h"></i>
                 </span>
                 <h4 class="text-section">Menu</h4>
               </li>
             <!--menu data hakim -->
-                           <li class="nav-item">
+                         <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class="fas fa-gavel"></i>
                   <p>Hakim</p>
@@ -217,7 +217,6 @@
                   src="/Build/assets/img/kaiadmin/logo_light.svg"
                   alt="navbar brand"
                   class="navbar-brand"
-                  height="20"
                 />
               </a>
               <div class="nav-toggle">
@@ -235,7 +234,7 @@
             <!-- End Logo Header -->
           </div>
           <!-- Navbar Header -->
-               <nav
+              <nav
             class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
           >
             <div class="container-fluid">
@@ -286,7 +285,7 @@
                
                  
 
-             <li class="nav-item topbar-user dropdown hidden-caret">
+               <li class="nav-item topbar-user dropdown hidden-caret">
                   <a
                     class="dropdown-toggle profile-pic"
                     data-bs-toggle="dropdown"
@@ -347,7 +346,7 @@
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
-              <h3 class="fw-bold mb-3">Edit Hakim</h3>
+              <h3 class="fw-bold mb-3">Forms</h3>
               <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                   <a href="#">
@@ -358,13 +357,13 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Hakim</a>
+                  <a href="#">Menu edit User</a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Tambah Hakim</a>
+                  <a href="#">edit Users</a>
                 </li>
               </ul>
             </div>
@@ -372,52 +371,41 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <div class="card-title">Tambah Hakim</div>
-                    <div class="card-category">
-                      
-                    </div>
+                    <div class="card-title">edit User</div>
                   </div>
-                    <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-6 col-lg-4">
-                         <!--Nama -->
-                        <form id="hakimForm" th:action="@{/Hakim/edit/{id}(id=${hakim.id})}" th:object="${hakim}" method="post">
-                        <div class="form-group">
-                            <label>Nama Hakim</label>
-                            <input type="text" th:field="*{nama}" class="form-control" />
-                        </div>
+                  <div class="container mt-4">
 
-                        <div class="form-group">
-                            <label>Pendidikan</label>
-                            <select th:field="*{pendidikan}" class="form-control">
-                            <option value="S1">S1</option>
-                            <option value="S2">S2</option>
-                            <option value="S3">S3</option>
-                            </select>
-                        </div>
+                <div class="container mt-4">
+  
 
-                        <div class="form-group">
-                            <label>Masa Kerja</label>
-                            <input type="text" th:field="*{masaKerja}" class="form-control" />
-                        </div>
+                <form th:action="@{/User/update}" th:object="${user}" method="post">
+    <div class="form-group mb-3">
+        <label>Username</label>
+        <input type="text" th:field="*{username}" class="form-control" readonly />
+    </div>
+    <div class="form-group mb-3">
+        <label>Password</label>
+        <input type="password" th:field="*{password}" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+</form>
 
-                        <form id="hakimForm" th:action="@{/Hakim/edit/{id}(id=${hakim.id})}" th:object="${hakim}" method="post"></form>
-                        <button id="btnSubmitHakim" type="submit" class="btn btn-success">Simpan</button>
-                        <button type="reset" class="btn btn-danger">Batal</button>
-                        </form>
 
-                        </div>
 
-                       
-                    </div>
-                  </div>
+
+                <div th:if="${param.success}" class="alert alert-success mt-2">
+                    ✅ User berhasil ditambahkan!
+                </div>
+                </div>
+
+          
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-    <footer class="footer">
+        <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
             <nav class="pull-left">
               <ul class="nav">
@@ -636,210 +624,41 @@
     <script src="/Build/assets/js/core/jquery-3.7.1.min.js"></script>
     <script src="/Build/assets/js/core/popper.min.js"></script>
     <script src="/Build/assets/js/core/bootstrap.min.js"></script>
-    <!-- Sweet Alert -->
-    <script src="/Build/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
     <!-- jQuery Scrollbar -->
     <script src="/Build/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="/Build/assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="/Build/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="/Build/assets/js/plugin/chart-circle/circles.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="/Build/assets/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="/Build/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="/Build/assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="/Build/assets/js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Google Maps Plugin -->
+    <script src="/Build/assets/js/plugin/gmaps/gmaps.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="/Build/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
     <!-- Kaiadmin JS -->
     <script src="/Build/assets/js/kaiadmin.min.js"></script>
+
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="/Build/assets/js/setting-demo2.js"></script>
     <script>
-      //== Class definition
-      var SweetAlert2Demo = (function () {
-        //== Demos
-        var initDemos = function () {
-          //== Sweetalert Demo 1
-          $("#alert_demo_1").click(function (e) {
-            swal("Good job!", {
-              buttons: {
-                confirm: {
-                  className: "btn btn-success",
-                },
-              },
-            });
-          });
-
-          //== Sweetalert Demo 2
-          $("#alert_demo_2").click(function (e) {
-            swal("Here's the title!", "...and here's the text!", {
-              buttons: {
-                confirm: {
-                  className: "btn btn-success",
-                },
-              },
-            });
-          });
-
-          //== Sweetalert Demo 3
-          $("#alert_demo_3_1").click(function (e) {
-            swal("Good job!", "Yeay Berhasil!", {
-              icon: "warning",
-              buttons: {
-                confirm: {
-                  className: "btn btn-warning",
-                },
-              },
-            });
-          });
-
-          $("#alert_demo_3_2").click(function (e) {
-            swal("Good job!", "You clicked the button!", {
-              icon: "error",
-              buttons: {
-                confirm: {
-                  className: "btn btn-danger",
-                },
-              },
-            });
-          });
-
-          $("#alert_demo_3_3").click(function (e) {
-            swal("Good job!", "Yeay Berhasil!", {
-              icon: "success",
-              buttons: {
-                confirm: {
-                  className: "btn btn-success",
-                },
-              },
-            });
-          });
-
-          $("#alert_demo_3_4").click(function (e) {
-            swal("Good job!", "You clicked the button!", {
-              icon: "info",
-              
-            });
-          });
-
-          //== Sweetalert Demo 4
-          $("#alert_demo_4").click(function (e) {
-            swal({
-              title: "Yeay Berhasil!",
-              text: "Anda Telah berhasil menambahkan data",
-              icon: "success",
-              
-            });
-          });
-
-          $("#alert_demo_5").click(function (e) {
-            swal({
-              title: "Input Something",
-              html: '<br><input class="form-control" placeholder="Input Something" id="input-field">',
-              content: {
-                element: "input",
-                attributes: {
-                  placeholder: "Input Something",
-                  type: "text",
-                  id: "input-field",
-                  className: "form-control",
-                },
-              },
-              buttons: {
-                cancel: {
-                  visible: true,
-                  className: "btn btn-danger",
-                },
-                confirm: {
-                  className: "btn btn-success",
-                },
-              },
-            }).then(function () {
-              swal("", "You entered : " + $("#input-field").val(), "success");
-            });
-          });
-
-          $("#alert_demo_6").click(function (e) {
-            swal("This modal will disappear soon!", {
-              buttons: false,
-              timer: 3000,
-            });
-          });
-
-          $("#alert_demo_7").click(function (e) {
-            swal({
-              title: "Are you sure?",
-              text: "You won't be able to revert this!",
-              type: "warning",
-              buttons: {
-                confirm: {
-                  text: "Yes, delete it!",
-                  className: "btn btn-success",
-                },
-                cancel: {
-                  visible: true,
-                  className: "btn btn-danger",
-                },
-              },
-            }).then((Delete) => {
-              if (Delete) {
-                swal({
-                  title: "Deleted!",
-                  text: "Your file has been deleted.",
-                  type: "success",
-                  buttons: {
-                    confirm: {
-                      className: "btn btn-success",
-                    },
-                  },
-                });
-              } else {
-                swal.close();
-              }
-            });
-          });
-
-          $("#alert_demo_8").click(function (e) {
-            swal({
-              title: "Are you sure?",
-              text: "You won't be able to revert this!",
-              type: "warning",
-              buttons: {
-                cancel: {
-                  visible: true,
-                  text: "No, cancel!",
-                  className: "btn btn-danger",
-                },
-                confirm: {
-                  text: "Yes, delete it!",
-                  className: "btn btn-success",
-                },
-              },
-            }).then((willDelete) => {
-              if (willDelete) {
-                swal("Poof! Your imaginary file has been deleted!", {
-                  icon: "success",
-                  buttons: {
-                    confirm: {
-                      className: "btn btn-success",
-                    },
-                  },
-                });
-              } else {
-                swal("Your imaginary file is safe!", {
-                  buttons: {
-                    confirm: {
-                      className: "btn btn-success",
-                    },
-                  },
-                });
-              }
-            });
-          });
-        };
-
-        return {
-          //== Init
-          init: function () {
-            initDemos();
-          },
-        };
-      })();
-
-      //== Class Initialization
-      jQuery(document).ready(function () {
-        SweetAlert2Demo.init();
-      });
        document.getElementById("btnSubmitHakim").addEventListener("click", function () {
         swal({
             title: "Yakin ingin menyimpan?",
@@ -860,7 +679,7 @@
                 // Delay sedikit sebelum submit supaya swal sempat muncul
                 setTimeout(function () {
                     document.getElementById("hakimForm").submit(); // form disubmit manual
-                }, 4000);
+                }, 2000);
             }
         });
     });
